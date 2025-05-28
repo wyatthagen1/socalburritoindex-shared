@@ -1,0 +1,30 @@
+{
+  "name": "socalburritoindex-shared",
+  "version": "1.0.0",
+  "description": "Shared schemas and types for SoCal Burrito Index",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "burrito",
+    "schemas",
+    "types"
+  ],
+  "author": "Wyatt Hagen",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0"
+  },
+  "files": [
+    "dist/**/*"
+  ]
+}
