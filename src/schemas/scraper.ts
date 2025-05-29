@@ -7,6 +7,8 @@ export const MenuItemSchema = z.object({
   type: z.string(),
 });
 
+export const MenuItemsSchema = z.array(MenuItemSchema);
+
 export const LLMUsageSchema = z.object({
   input: z.number(),
   output: z.number(),

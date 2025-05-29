@@ -26,6 +26,7 @@ export type LLMUsage = z.infer<typeof LLMUsageSchema>;
 export type MenuScrapingResults = z.infer<typeof MenuScrapingResultsSchema>;
 export type SearchRequest = z.infer<typeof searchRequestSchema>;
 
+
 // Frontend-friendly display types
 export interface RestaurantDisplay {
   name: string;

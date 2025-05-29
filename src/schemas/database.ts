@@ -43,6 +43,31 @@ export const GeometrySchema = z.discriminatedUnion('type', [
   }),
 ]);
 
+const PropertiesSchema = z.object({
+  ZCTA5CE20: z.string().length(5),
+  GEOID20: z.string().length(5),
+  CLASSFP20: z.string().optional(),
+  MTFCC20: z.string().optional(),
+  FUNCSTAT20: z.string().optional(),
+  ALAND20: z.number().int().nonnegative(),
+  AWATER20: z.number().int().nonnegative(),
+  INTPTLAT20: z.string().regex(/^[+-]\d+\.\d+$/),
+  INTPTLON20: z.string().regex(/^[+-]\d+\.\d+$/),
+  countyfp: z.string().length(3),
+  statefp: z.string().length(2),
+});
+
+export const FeatureSchema = z.object({
+  type: z.literal('Feature'),
+  geometry: GeometrySchema,
+  properties: PropertiesSchema,
+});
+
+export const GeoJSONSchema = z.object({
+  type: z.literal('FeatureCollection'),
+  features: z.array(FeatureSchema),
+});
+
 export const ZipBoundaryRowSchema = z.object({
   id: z.number().optional(),
   zip: z.string().length(5),
