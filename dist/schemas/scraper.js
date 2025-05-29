@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.MenuProcessingResultsTableRowSchema = exports.searchRequestSchema = exports.MenuScrapingResultsSchema = exports.LLMUsageSchema = exports.MenuItemSchema = void 0;
+exports.MenuProcessingResultsTableRowSchema = exports.searchRequestSchema = exports.MenuScrapingResultsSchema = exports.LLMUsageSchema = exports.MenuItemsSchema = exports.MenuItemSchema = void 0;
 const zod_1 = require("zod");
 const database_1 = require("./database");
 exports.MenuItemSchema = zod_1.z.object({
@@ -8,6 +8,7 @@ exports.MenuItemSchema = zod_1.z.object({
     price: zod_1.z.string(),
     type: zod_1.z.string(),
 });
+exports.MenuItemsSchema = zod_1.z.array(exports.MenuItemSchema);
 exports.LLMUsageSchema = zod_1.z.object({
     input: zod_1.z.number(),
     output: zod_1.z.number(),

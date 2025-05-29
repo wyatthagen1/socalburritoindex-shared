@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ZipBoundaryRowSchema = exports.GeometrySchema = exports.RestaurantRowForMenuProcessingSchema = exports.RestaurantRowMenuProcessingSharedColsSchema = exports.RestaurantTableRowSchema = void 0;
+exports.ZipBoundaryRowSchema = exports.GeoJSONSchema = exports.FeatureSchema = exports.GeometrySchema = exports.RestaurantRowForMenuProcessingSchema = exports.RestaurantRowMenuProcessingSharedColsSchema = exports.RestaurantTableRowSchema = void 0;
 const zod_1 = require("zod");
 // Restaurant schemas
 exports.RestaurantTableRowSchema = zod_1.z.object({
@@ -40,6 +40,28 @@ exports.GeometrySchema = zod_1.z.discriminatedUnion('type', [
         coordinates: MultiPolygonCoordinatesSchema,
     }),
 ]);
+const PropertiesSchema = zod_1.z.object({
+    ZCTA5CE20: zod_1.z.string().length(5),
+    GEOID20: zod_1.z.string().length(5),
+    CLASSFP20: zod_1.z.string().optional(),
+    MTFCC20: zod_1.z.string().optional(),
+    FUNCSTAT20: zod_1.z.string().optional(),
+    ALAND20: zod_1.z.number().int().nonnegative(),
+    AWATER20: zod_1.z.number().int().nonnegative(),
+    INTPTLAT20: zod_1.z.string().regex(/^[+-]\d+\.\d+$/),
+    INTPTLON20: zod_1.z.string().regex(/^[+-]\d+\.\d+$/),
+    countyfp: zod_1.z.string().length(3),
+    statefp: zod_1.z.string().length(2),
+});
+exports.FeatureSchema = zod_1.z.object({
+    type: zod_1.z.literal('Feature'),
+    geometry: exports.GeometrySchema,
+    properties: PropertiesSchema,
+});
+exports.GeoJSONSchema = zod_1.z.object({
+    type: zod_1.z.literal('FeatureCollection'),
+    features: zod_1.z.array(exports.FeatureSchema),
+});
 exports.ZipBoundaryRowSchema = zod_1.z.object({
     id: zod_1.z.number().optional(),
     zip: zod_1.z.string().length(5),

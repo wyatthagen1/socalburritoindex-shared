@@ -12,6 +12,19 @@ export declare const MenuItemSchema: z.ZodObject<{
     item: string;
     price: string;
 }>;
+export declare const MenuItemsSchema: z.ZodArray<z.ZodObject<{
+    item: z.ZodString;
+    price: z.ZodString;
+    type: z.ZodString;
+}, "strip", z.ZodTypeAny, {
+    type: string;
+    item: string;
+    price: string;
+}, {
+    type: string;
+    item: string;
+    price: string;
+}>, "many">;
 export declare const LLMUsageSchema: z.ZodObject<{
     input: z.ZodNumber;
     output: z.ZodNumber;

@@ -94,6 +94,265 @@ export declare const GeometrySchema: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
     type: "MultiPolygon";
     coordinates: [number, number][][][];
 }>]>;
+export declare const FeatureSchema: z.ZodObject<{
+    type: z.ZodLiteral<"Feature">;
+    geometry: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"Polygon">;
+        coordinates: z.ZodArray<z.ZodArray<z.ZodTuple<[z.ZodNumber, z.ZodNumber], null>, "many">, "many">;
+    }, "strip", z.ZodTypeAny, {
+        type: "Polygon";
+        coordinates: [number, number][][];
+    }, {
+        type: "Polygon";
+        coordinates: [number, number][][];
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"MultiPolygon">;
+        coordinates: z.ZodArray<z.ZodArray<z.ZodArray<z.ZodTuple<[z.ZodNumber, z.ZodNumber], null>, "many">, "many">, "many">;
+    }, "strip", z.ZodTypeAny, {
+        type: "MultiPolygon";
+        coordinates: [number, number][][][];
+    }, {
+        type: "MultiPolygon";
+        coordinates: [number, number][][][];
+    }>]>;
+    properties: z.ZodObject<{
+        ZCTA5CE20: z.ZodString;
+        GEOID20: z.ZodString;
+        CLASSFP20: z.ZodOptional<z.ZodString>;
+        MTFCC20: z.ZodOptional<z.ZodString>;
+        FUNCSTAT20: z.ZodOptional<z.ZodString>;
+        ALAND20: z.ZodNumber;
+        AWATER20: z.ZodNumber;
+        INTPTLAT20: z.ZodString;
+        INTPTLON20: z.ZodString;
+        countyfp: z.ZodString;
+        statefp: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        countyfp: string;
+        statefp: string;
+        ZCTA5CE20: string;
+        GEOID20: string;
+        ALAND20: number;
+        AWATER20: number;
+        INTPTLAT20: string;
+        INTPTLON20: string;
+        CLASSFP20?: string | undefined;
+        MTFCC20?: string | undefined;
+        FUNCSTAT20?: string | undefined;
+    }, {
+        countyfp: string;
+        statefp: string;
+        ZCTA5CE20: string;
+        GEOID20: string;
+        ALAND20: number;
+        AWATER20: number;
+        INTPTLAT20: string;
+        INTPTLON20: string;
+        CLASSFP20?: string | undefined;
+        MTFCC20?: string | undefined;
+        FUNCSTAT20?: string | undefined;
+    }>;
+}, "strip", z.ZodTypeAny, {
+    type: "Feature";
+    geometry: {
+        type: "Polygon";
+        coordinates: [number, number][][];
+    } | {
+        type: "MultiPolygon";
+        coordinates: [number, number][][][];
+    };
+    properties: {
+        countyfp: string;
+        statefp: string;
+        ZCTA5CE20: string;
+        GEOID20: string;
+        ALAND20: number;
+        AWATER20: number;
+        INTPTLAT20: string;
+        INTPTLON20: string;
+        CLASSFP20?: string | undefined;
+        MTFCC20?: string | undefined;
+        FUNCSTAT20?: string | undefined;
+    };
+}, {
+    type: "Feature";
+    geometry: {
+        type: "Polygon";
+        coordinates: [number, number][][];
+    } | {
+        type: "MultiPolygon";
+        coordinates: [number, number][][][];
+    };
+    properties: {
+        countyfp: string;
+        statefp: string;
+        ZCTA5CE20: string;
+        GEOID20: string;
+        ALAND20: number;
+        AWATER20: number;
+        INTPTLAT20: string;
+        INTPTLON20: string;
+        CLASSFP20?: string | undefined;
+        MTFCC20?: string | undefined;
+        FUNCSTAT20?: string | undefined;
+    };
+}>;
+export declare const GeoJSONSchema: z.ZodObject<{
+    type: z.ZodLiteral<"FeatureCollection">;
+    features: z.ZodArray<z.ZodObject<{
+        type: z.ZodLiteral<"Feature">;
+        geometry: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+            type: z.ZodLiteral<"Polygon">;
+            coordinates: z.ZodArray<z.ZodArray<z.ZodTuple<[z.ZodNumber, z.ZodNumber], null>, "many">, "many">;
+        }, "strip", z.ZodTypeAny, {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        }, {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        }>, z.ZodObject<{
+            type: z.ZodLiteral<"MultiPolygon">;
+            coordinates: z.ZodArray<z.ZodArray<z.ZodArray<z.ZodTuple<[z.ZodNumber, z.ZodNumber], null>, "many">, "many">, "many">;
+        }, "strip", z.ZodTypeAny, {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        }, {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        }>]>;
+        properties: z.ZodObject<{
+            ZCTA5CE20: z.ZodString;
+            GEOID20: z.ZodString;
+            CLASSFP20: z.ZodOptional<z.ZodString>;
+            MTFCC20: z.ZodOptional<z.ZodString>;
+            FUNCSTAT20: z.ZodOptional<z.ZodString>;
+            ALAND20: z.ZodNumber;
+            AWATER20: z.ZodNumber;
+            INTPTLAT20: z.ZodString;
+            INTPTLON20: z.ZodString;
+            countyfp: z.ZodString;
+            statefp: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        }, {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        }>;
+    }, "strip", z.ZodTypeAny, {
+        type: "Feature";
+        geometry: {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        } | {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        };
+        properties: {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        };
+    }, {
+        type: "Feature";
+        geometry: {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        } | {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        };
+        properties: {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        };
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    type: "FeatureCollection";
+    features: {
+        type: "Feature";
+        geometry: {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        } | {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        };
+        properties: {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        };
+    }[];
+}, {
+    type: "FeatureCollection";
+    features: {
+        type: "Feature";
+        geometry: {
+            type: "Polygon";
+            coordinates: [number, number][][];
+        } | {
+            type: "MultiPolygon";
+            coordinates: [number, number][][][];
+        };
+        properties: {
+            countyfp: string;
+            statefp: string;
+            ZCTA5CE20: string;
+            GEOID20: string;
+            ALAND20: number;
+            AWATER20: number;
+            INTPTLAT20: string;
+            INTPTLON20: string;
+            CLASSFP20?: string | undefined;
+            MTFCC20?: string | undefined;
+            FUNCSTAT20?: string | undefined;
+        };
+    }[];
+}>;
 export declare const ZipBoundaryRowSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodNumber>;
     zip: z.ZodString;
@@ -115,8 +374,8 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     zip: string;
     countyfp: string;
     statefp: string;
-    geoid: string;
     geometry: string;
+    geoid: string;
     aland: number;
     awater: number;
     intptlat: number;
@@ -132,8 +391,8 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     zip: string;
     countyfp: string;
     statefp: string;
-    geoid: string;
     geometry: string;
+    geoid: string;
     aland: number;
     awater: number;
     intptlat: number;
