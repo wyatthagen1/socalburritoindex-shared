@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ZipBoundaryRowSchema = exports.GeoJSONSchema = exports.FeatureSchema = exports.GeometrySchema = exports.RestaurantRowForMenuProcessingSchema = exports.RestaurantRowMenuProcessingSharedColsSchema = exports.RestaurantTableRowSchema = void 0;
+exports.CountyStatsSchema = exports.DissolvedAreaStatsSchema = exports.DissolvedBoundaryRowSchema = exports.ZipBoundaryRowSchema = exports.GeoJSONSchema = exports.FeatureSchema = exports.GeometrySchema = exports.RestaurantRowForMenuProcessingSchema = exports.RestaurantRowMenuProcessingSharedColsSchema = exports.RestaurantTableRowSchema = void 0;
 const zod_1 = require("zod");
 // Restaurant schemas
 exports.RestaurantTableRowSchema = zod_1.z.object({
@@ -79,5 +79,42 @@ exports.ZipBoundaryRowSchema = zod_1.z.object({
     source_date: zod_1.z.string().optional(),
     created_at: zod_1.z.string().optional(),
     updated_at: zod_1.z.string().optional(),
+});
+// Schema for dissolved boundaries table
+exports.DissolvedBoundaryRowSchema = zod_1.z.object({
+    id: zod_1.z.number().optional(),
+    county_fp: zod_1.z.string(),
+    area_name: zod_1.z.string(),
+    geometry: zod_1.z.string(), // GeoJSON string
+    area_size: zod_1.z.number().nullable().optional(),
+    zip_count: zod_1.z.number().nullable().optional(),
+    created_at: zod_1.z.string().optional()
+});
+// Schema for statistics response from RPC function
+exports.DissolvedAreaStatsSchema = zod_1.z.object({
+    dissolved_area_id: zod_1.z.number(),
+    area_name: zod_1.z.string(),
+    county_fp: zod_1.z.string(),
+    zip_count: zod_1.z.number(),
+    total_restaurants: zod_1.z.number(),
+    avg_burrito_price: zod_1.z.number().nullable(),
+    median_burrito_price: zod_1.z.number().nullable(),
+    min_burrito_price: zod_1.z.number().nullable(),
+    max_burrito_price: zod_1.z.number().nullable(),
+    total_menu_items: zod_1.z.number(),
+    last_updated: zod_1.z.string().nullable()
+});
+// Schema for county-wide statistics aggregation
+exports.CountyStatsSchema = zod_1.z.object({
+    county_fp: zod_1.z.string(),
+    county_name: zod_1.z.string(),
+    total_dissolved_areas: zod_1.z.number(),
+    total_zip_codes: zod_1.z.number(),
+    total_restaurants: zod_1.z.number(),
+    avg_burrito_price: zod_1.z.number().nullable(),
+    median_burrito_price: zod_1.z.number().nullable(),
+    min_burrito_price: zod_1.z.number().nullable(),
+    max_burrito_price: zod_1.z.number().nullable(),
+    total_menu_items: zod_1.z.number()
 });
 //# sourceMappingURL=database.js.map

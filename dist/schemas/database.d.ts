@@ -405,4 +405,100 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     created_at?: string | undefined;
     updated_at?: string | undefined;
 }>;
+export declare const DissolvedBoundaryRowSchema: z.ZodObject<{
+    id: z.ZodOptional<z.ZodNumber>;
+    county_fp: z.ZodString;
+    area_name: z.ZodString;
+    geometry: z.ZodString;
+    area_size: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+    zip_count: z.ZodOptional<z.ZodNullable<z.ZodNumber>>;
+    created_at: z.ZodOptional<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    geometry: string;
+    county_fp: string;
+    area_name: string;
+    id?: number | undefined;
+    created_at?: string | undefined;
+    area_size?: number | null | undefined;
+    zip_count?: number | null | undefined;
+}, {
+    geometry: string;
+    county_fp: string;
+    area_name: string;
+    id?: number | undefined;
+    created_at?: string | undefined;
+    area_size?: number | null | undefined;
+    zip_count?: number | null | undefined;
+}>;
+export declare const DissolvedAreaStatsSchema: z.ZodObject<{
+    dissolved_area_id: z.ZodNumber;
+    area_name: z.ZodString;
+    county_fp: z.ZodString;
+    zip_count: z.ZodNumber;
+    total_restaurants: z.ZodNumber;
+    avg_burrito_price: z.ZodNullable<z.ZodNumber>;
+    median_burrito_price: z.ZodNullable<z.ZodNumber>;
+    min_burrito_price: z.ZodNullable<z.ZodNumber>;
+    max_burrito_price: z.ZodNullable<z.ZodNumber>;
+    total_menu_items: z.ZodNumber;
+    last_updated: z.ZodNullable<z.ZodString>;
+}, "strip", z.ZodTypeAny, {
+    county_fp: string;
+    area_name: string;
+    zip_count: number;
+    dissolved_area_id: number;
+    total_restaurants: number;
+    avg_burrito_price: number | null;
+    median_burrito_price: number | null;
+    min_burrito_price: number | null;
+    max_burrito_price: number | null;
+    total_menu_items: number;
+    last_updated: string | null;
+}, {
+    county_fp: string;
+    area_name: string;
+    zip_count: number;
+    dissolved_area_id: number;
+    total_restaurants: number;
+    avg_burrito_price: number | null;
+    median_burrito_price: number | null;
+    min_burrito_price: number | null;
+    max_burrito_price: number | null;
+    total_menu_items: number;
+    last_updated: string | null;
+}>;
+export declare const CountyStatsSchema: z.ZodObject<{
+    county_fp: z.ZodString;
+    county_name: z.ZodString;
+    total_dissolved_areas: z.ZodNumber;
+    total_zip_codes: z.ZodNumber;
+    total_restaurants: z.ZodNumber;
+    avg_burrito_price: z.ZodNullable<z.ZodNumber>;
+    median_burrito_price: z.ZodNullable<z.ZodNumber>;
+    min_burrito_price: z.ZodNullable<z.ZodNumber>;
+    max_burrito_price: z.ZodNullable<z.ZodNumber>;
+    total_menu_items: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    county_fp: string;
+    total_restaurants: number;
+    avg_burrito_price: number | null;
+    median_burrito_price: number | null;
+    min_burrito_price: number | null;
+    max_burrito_price: number | null;
+    total_menu_items: number;
+    county_name: string;
+    total_dissolved_areas: number;
+    total_zip_codes: number;
+}, {
+    county_fp: string;
+    total_restaurants: number;
+    avg_burrito_price: number | null;
+    median_burrito_price: number | null;
+    min_burrito_price: number | null;
+    max_burrito_price: number | null;
+    total_menu_items: number;
+    county_name: string;
+    total_dissolved_areas: number;
+    total_zip_codes: number;
+}>;
 //# sourceMappingURL=database.d.ts.map
