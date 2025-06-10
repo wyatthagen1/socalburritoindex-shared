@@ -86,3 +86,44 @@ export const ZipBoundaryRowSchema = z.object({
   created_at: z.string().optional(),
   updated_at: z.string().optional(),
 });
+
+
+// Schema for dissolved boundaries table
+export const DissolvedBoundaryRowSchema = z.object({
+  id: z.number().optional(),
+  county_fp: z.string(),
+  area_name: z.string(),
+  geometry: z.string(), // GeoJSON string
+  area_size: z.number().nullable().optional(),
+  zip_count: z.number().nullable().optional(),
+  created_at: z.string().optional()
+});
+
+// Schema for statistics response from RPC function
+export const DissolvedAreaStatsSchema = z.object({
+  dissolved_area_id: z.number(),
+  area_name: z.string(),
+  county_fp: z.string(),
+  zip_count: z.number(),
+  total_restaurants: z.number(),
+  avg_burrito_price: z.number().nullable(),
+  median_burrito_price: z.number().nullable(),
+  min_burrito_price: z.number().nullable(),
+  max_burrito_price: z.number().nullable(),
+  total_menu_items: z.number(),
+  last_updated: z.string().nullable()
+});
+
+// Schema for county-wide statistics aggregation
+export const CountyStatsSchema = z.object({
+  county_fp: z.string(),
+  county_name: z.string(),
+  total_dissolved_areas: z.number(),
+  total_zip_codes: z.number(),
+  total_restaurants: z.number(),
+  avg_burrito_price: z.number().nullable(),
+  median_burrito_price: z.number().nullable(),
+  min_burrito_price: z.number().nullable(),
+  max_burrito_price: z.number().nullable(),
+  total_menu_items: z.number()
+});
