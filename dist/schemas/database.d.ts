@@ -370,6 +370,7 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     source_date: z.ZodOptional<z.ZodString>;
     created_at: z.ZodOptional<z.ZodString>;
     updated_at: z.ZodOptional<z.ZodString>;
+    dissolved_area_id: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     zip: string;
     countyfp: string;
@@ -387,6 +388,7 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     source_date?: string | undefined;
     created_at?: string | undefined;
     updated_at?: string | undefined;
+    dissolved_area_id?: number | undefined;
 }, {
     zip: string;
     countyfp: string;
@@ -404,6 +406,7 @@ export declare const ZipBoundaryRowSchema: z.ZodObject<{
     source_date?: string | undefined;
     created_at?: string | undefined;
     updated_at?: string | undefined;
+    dissolved_area_id?: number | undefined;
 }>;
 export declare const DissolvedBoundaryRowSchema: z.ZodObject<{
     id: z.ZodOptional<z.ZodNumber>;
@@ -443,10 +446,10 @@ export declare const DissolvedAreaStatsSchema: z.ZodObject<{
     total_menu_items: z.ZodNumber;
     last_updated: z.ZodNullable<z.ZodString>;
 }, "strip", z.ZodTypeAny, {
+    dissolved_area_id: number;
     county_fp: string;
     area_name: string;
     zip_count: number;
-    dissolved_area_id: number;
     total_restaurants: number;
     avg_burrito_price: number | null;
     median_burrito_price: number | null;
@@ -455,10 +458,10 @@ export declare const DissolvedAreaStatsSchema: z.ZodObject<{
     total_menu_items: number;
     last_updated: string | null;
 }, {
+    dissolved_area_id: number;
     county_fp: string;
     area_name: string;
     zip_count: number;
-    dissolved_area_id: number;
     total_restaurants: number;
     avg_burrito_price: number | null;
     median_burrito_price: number | null;

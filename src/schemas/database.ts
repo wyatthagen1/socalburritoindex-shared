@@ -85,6 +85,7 @@ export const ZipBoundaryRowSchema = z.object({
   source_date: z.string().optional(),
   created_at: z.string().optional(),
   updated_at: z.string().optional(),
+  dissolved_area_id: z.number().optional(),
 });
 
 

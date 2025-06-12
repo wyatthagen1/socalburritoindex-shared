@@ -79,6 +79,7 @@ exports.ZipBoundaryRowSchema = zod_1.z.object({
     source_date: zod_1.z.string().optional(),
     created_at: zod_1.z.string().optional(),
     updated_at: zod_1.z.string().optional(),
+    dissolved_area_id: zod_1.z.number().optional(),
 });
 // Schema for dissolved boundaries table
 exports.DissolvedBoundaryRowSchema = zod_1.z.object({
