@@ -19,6 +19,13 @@ export const TABLE_NAMES = {
       description: 'Most recent data',
       months: 0 
     },
+    {
+      id: 'test', 
+      label: '1 Months Ago', 
+      description: 'Test label',
+      months: 1
+
+    },
     { 
       id: '6months', 
       label: '6 Months Ago', 

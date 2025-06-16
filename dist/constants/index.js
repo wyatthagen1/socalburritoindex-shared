@@ -21,6 +21,12 @@ exports.TIME_FILTERS = [
         months: 0
     },
     {
+        id: 'test',
+        label: '1 Months Ago',
+        description: 'Test label',
+        months: 1
+    },
+    {
         id: '6months',
         label: '6 Months Ago',
         description: 'Compare to 6 months previous',

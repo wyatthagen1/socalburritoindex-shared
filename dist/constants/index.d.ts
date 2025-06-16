@@ -31,6 +31,11 @@ export declare const TIME_FILTERS: readonly [{
     readonly description: "Most recent data";
     readonly months: 0;
 }, {
+    readonly id: "test";
+    readonly label: "1 Months Ago";
+    readonly description: "Test label";
+    readonly months: 1;
+}, {
     readonly id: "6months";
     readonly label: "6 Months Ago";
     readonly description: "Compare to 6 months previous";
