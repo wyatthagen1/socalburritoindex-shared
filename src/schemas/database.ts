@@ -13,7 +13,8 @@ export const RestaurantTableRowSchema = z.object({
         latitude: z.number(),
         longitude: z.number()
     }),
-    googleId: z.string()
+    googleId: z.string(),
+    has_result: z.number().int().min(0).max(1).optional()
 });
 
 export const RestaurantRowMenuProcessingSharedColsSchema = z.object({
