@@ -18,6 +18,7 @@ export declare const RestaurantTableRowSchema: z.ZodObject<{
         longitude: number;
     }>;
     googleId: z.ZodString;
+    has_result: z.ZodOptional<z.ZodNumber>;
 }, "strip", z.ZodTypeAny, {
     name: string;
     zip: string;
@@ -31,6 +32,7 @@ export declare const RestaurantTableRowSchema: z.ZodObject<{
         longitude: number;
     };
     googleId: string;
+    has_result?: number | undefined;
 }, {
     name: string;
     zip: string;
@@ -44,6 +46,7 @@ export declare const RestaurantTableRowSchema: z.ZodObject<{
         longitude: number;
     };
     googleId: string;
+    has_result?: number | undefined;
 }>;
 export declare const RestaurantRowMenuProcessingSharedColsSchema: z.ZodObject<{
     restaurant_uuid: z.ZodString;

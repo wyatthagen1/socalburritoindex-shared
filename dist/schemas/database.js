@@ -15,7 +15,8 @@ exports.RestaurantTableRowSchema = zod_1.z.object({
         latitude: zod_1.z.number(),
         longitude: zod_1.z.number()
     }),
-    googleId: zod_1.z.string()
+    googleId: zod_1.z.string(),
+    has_result: zod_1.z.number().int().min(0).max(1).optional()
 });
 exports.RestaurantRowMenuProcessingSharedColsSchema = zod_1.z.object({
     restaurant_uuid: zod_1.z.string().uuid(),
