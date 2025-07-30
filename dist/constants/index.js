@@ -21,25 +21,19 @@ exports.TIME_FILTERS = [
         months: 0
     },
     {
-        id: 'test',
-        label: '1 Months Ago',
-        description: 'Test label',
-        months: 1
-    },
-    {
-        id: '6months',
+        id: '6mos',
         label: '6 Months Ago',
         description: 'Compare to 6 months previous',
         months: 6
     },
     {
-        id: '1year',
+        id: '1yr',
         label: '1 Year Ago',
         description: 'Compare to 1 year previous',
         months: 12
     },
     {
-        id: '2years',
+        id: '2yrs',
         label: '2 Years Ago',
         description: 'Compare to 2 years previous',
         months: 24
